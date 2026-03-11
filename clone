@@ -1,1 +1,3 @@
 git clone --bare https://gitlab.com/wgu-gitlab-environment/student-repos/bhickm13/d493-scripting-and-programming-applications
+cd project-name.git
+git push --mirror https://gitlab.com/wgu-gitlab-environment/student-repos/bhickm13/d493-scripting-and-programming-applications

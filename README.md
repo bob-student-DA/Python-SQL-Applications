@@ -1,61 +1,32 @@
-# C1: WeatherSummary data model for 5-year weather aggregation
-# C4: weathersummaryORM - C4 (SQLAlchemy ORM table)
+# Weather Event Planning Application
 
-from sqlalchemy import Column, Integer, Float
-from sqlalchemy.orm import declarative_base
+## Overview
+This application uses Python to retrieve historical weather data for a specified location and date,
+calculates five-year weather aggregates, and stores the results in a local SQLite database.
+The application is designed for the use of event planning decisions by providing expected weather
+conditions for a given time of year.
 
-Base = declarative_base()
+The application uses the Open-Meteo Historical Weather API, SQLAlchemy ORM in conjunction with SQLite for local
+data storage.
 
-class WeatherSummary:
-    def __init__(
-        self,
-        latitude,
-        longitude,
-        month,
-        day,
-        year
-    ):
-        self.latitude = latitude
-        self.longitude = longitude
-        self.month = month
-        self.day = day
-        self.year = year
+## Features
+- Retrieves daily historical weather data for the most recent five years
+- Calculates five-year averages, minimums, maximums, and precipitation totals
+- Stores aggregated weather data in a SQLite database
+- Queries and displays stored weather summary data in a formatted output
 
-        #Five-year temperature stats
-        self.avg_temp_5yr = None
-        self.min_temp_5yr = None
-        self.max_temp_5yr = None
-
-        #Five-year wind speed stats
-        self.avg_wind_5yr = None
-        self.min_wind_5yr = None
-        self.max_wind_5yr = None
-
-        #Five-year precipitation stats
-        self.sum_precip_5yr = None
-        self.min_precip_5yr = None
-        self.max_precip_5yr = None
+## Programs Used
+- Python 3
+- Requests
+- SQLAlchemy
+- SQLite
+- Open-Meteo Historical Weather API
+- Standard Python modules (such as datetime and sqlite3) are included with Python 3.13 and are covered by the Python version listed in requirements.txt.
 
 
-class WeatherSummaryORM(Base):
-    __tablename__ = "weather_summary"
 
-    id = Column(Integer, primary_key=True)
-
-    latitude = Column(Float)
-    longitude = Column(Float)
-    month = Column(Integer)
-    day = Column(Integer)
-    year = Column(Integer)
-
-    avg_temp_5yr = Column(Float)
-    min_temp_5yr = Column(Float)
-    max_temp_5yr = Column(Float)
-
-    avg_wind_5yr = Column(Float)
-    min_wind_5yr = Column(Float)
-    max_wind_5yr = Column(Float)
-
-    sum_precip_5yr =Column(Float)
-    min_precip_5yr = Column(Float)
-    max_precip_5yr = Column(Float)
+## How to Run the Program
+1. Clone the repository.
+2. Create and activate a Python virtual environment (if necessary).
+3. Install required dependencies:
+   pip install -r requirements.txt

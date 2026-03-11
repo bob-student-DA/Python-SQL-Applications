@@ -1,0 +1,10 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+
+# sqlite database
+weather.sqlite3
+# Python cache
+__pycache__/
+# PyCharm project files
+.idea/
